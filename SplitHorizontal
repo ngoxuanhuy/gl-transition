@@ -1,0 +1,24 @@
+// Author: ngoxuanhuy
+// License: MIT
+
+//float multiple_progress = progress * 2.0;
+
+vec4 transition (vec2 uv) 
+{
+    if (uv.y <= 0.5)
+    {
+        return mix(
+            getFromColor(uv),
+            getToColor(uv),
+            step(1.0-uv.y, progress)
+        );
+    }
+    else
+    {
+      return mix(
+        getFromColor(uv),
+        getToColor(uv),
+        step(uv.y, progress)
+      );
+    }
+}
